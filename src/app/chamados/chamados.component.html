@@ -1,0 +1,34 @@
+<section class="page-card">
+  <h2>Chamados</h2>
+  <p>Controle de atendimento e prioridades do suporte.</p>
+
+  <div class="cards">
+    <article>
+      <strong>19</strong>
+      <span>Abertos</span>
+    </article>
+    <article>
+      <strong>7</strong>
+      <span>Criticos</span>
+    </article>
+    <article>
+      <strong>2h12</strong>
+      <span>SLA medio</span>
+    </article>
+  </div>
+
+  <div class="table">
+    <div class="row head">
+      <span>ID</span>
+      <span>Assunto</span>
+      <span>Prioridade</span>
+      <span>Status</span>
+    </div>
+    <div class="row" *ngFor="let chamado of chamados">
+      <span>{{ chamado.id }}</span>
+      <span>{{ chamado.assunto }}</span>
+      <span>{{ chamado.prioridade }}</span>
+      <span>{{ chamado.status }}</span>
+    </div>
+  </div>
+</section>

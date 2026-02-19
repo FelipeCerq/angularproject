@@ -1,0 +1,26 @@
+<section class="page-card">
+  <h2>Perfil</h2>
+  <p>Dados do usuario autenticado.</p>
+
+  <div class="profile-grid" *ngIf="user as currentUser">
+    <div class="avatar">{{ currentUser.name.charAt(0).toUpperCase() }}</div>
+    <div class="details">
+      <div class="row">
+        <span>Nome</span>
+        <strong>{{ currentUser.name }}</strong>
+      </div>
+      <div class="row">
+        <span>Email</span>
+        <strong>{{ currentUser.email }}</strong>
+      </div>
+      <div class="row">
+        <span>Cargo</span>
+        <strong>{{ currentUser.role }}</strong>
+      </div>
+      <div class="row">
+        <span>Ultimo login</span>
+        <strong>{{ currentUser.loginAt | date:'dd/MM/yyyy HH:mm' }}</strong>
+      </div>
+    </div>
+  </div>
+</section>

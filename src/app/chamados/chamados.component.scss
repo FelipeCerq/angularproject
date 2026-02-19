@@ -1,0 +1,52 @@
+.page-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 8px 22px rgba(24, 39, 75, 0.08);
+}
+
+h2 {
+  margin: 0;
+  color: #1f2a44;
+}
+
+p {
+  color: #5f6f8f;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.8rem;
+  margin: 1rem 0;
+}
+
+.cards article {
+  background: #f6f8fc;
+  border-radius: 10px;
+  padding: 0.8rem;
+}
+
+.cards strong {
+  display: block;
+  font-size: 1.3rem;
+  color: #1f2a44;
+}
+
+.cards span {
+  color: #5f6f8f;
+  font-size: 0.85rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 0.7fr 2.1fr 1fr 1.2fr;
+  gap: 0.8rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #ebeff7;
+}
+
+.row.head {
+  font-weight: 700;
+  color: #5f6f8f;
+}

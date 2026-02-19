@@ -1,0 +1,19 @@
+<section class="page-card">
+  <h2>Relatorios</h2>
+  <p>Consolidados para acompanhamento comercial e operacional.</p>
+
+  <div class="table">
+    <div class="row head">
+      <span>Relatorio</span>
+      <span>Periodo</span>
+      <span>Ultima Atualizacao</span>
+      <span>Status</span>
+    </div>
+    <div class="row" *ngFor="let report of reports">
+      <span>{{ report.nome }}</span>
+      <span>{{ report.periodo }}</span>
+      <span>{{ report.atualizado }}</span>
+      <span class="status" [class.processing]="report.status === 'Processando'">{{ report.status }}</span>
+    </div>
+  </div>
+</section>

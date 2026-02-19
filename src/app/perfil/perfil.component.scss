@@ -1,0 +1,60 @@
+.page-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 8px 22px rgba(24, 39, 75, 0.08);
+}
+
+h2 {
+  margin: 0;
+  color: #1f2a44;
+}
+
+p {
+  color: #5f6f8f;
+}
+
+.profile-grid {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 1rem;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #2f6fec;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.details {
+  border: 1px solid #e7edf8;
+  border-radius: 10px;
+  padding: 0.5rem 0.8rem;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #edf2fb;
+  padding: 0.75rem 0;
+}
+
+.row:last-child {
+  border-bottom: 0;
+}
+
+.row span {
+  color: #6a7895;
+}
+
+.row strong {
+  color: #1f2a44;
+}

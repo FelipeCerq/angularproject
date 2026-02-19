@@ -1,0 +1,8 @@
+node_modules
+.vscode
+.github
+.angular
+e2e
+dist
+assets
+coverage

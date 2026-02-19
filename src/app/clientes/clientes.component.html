@@ -1,0 +1,66 @@
+<section class="page-card">
+  <h2>Clientes</h2>
+  <p>Carteira de clientes e andamento comercial com filtro dinamico.</p>
+
+  <div class="chips">
+    <span>Total base: {{ clientes.length }}</span>
+    <span>Filtrados: {{ filteredClientes.length }}</span>
+    <span>Ativos: {{ filteredActiveCount }}</span>
+  </div>
+
+  <div class="filters">
+    <input
+      type="text"
+      [value]="searchTerm"
+      (input)="onSearchChange($event)"
+      placeholder="Buscar por nome, segmento, responsavel ou fase"
+    />
+
+    <select [value]="selectedSegment" (change)="onSegmentChange($event)">
+      <option *ngFor="let segmento of segmentos" [value]="segmento">{{ segmento }}</option>
+    </select>
+
+    <select [value]="selectedStatus" (change)="onStatusChange($event)">
+      <option *ngFor="let status of statuses" [value]="status">{{ status }}</option>
+    </select>
+
+    <select [value]="selectedOwner" (change)="onOwnerChange($event)">
+      <option *ngFor="let owner of owners" [value]="owner">{{ owner }}</option>
+    </select>
+
+    <select [value]="sortBy" (change)="onSortChange($event)">
+      <option value="nome-asc">Nome A-Z</option>
+      <option value="nome-desc">Nome Z-A</option>
+      <option value="segmento-asc">Segmento A-Z</option>
+      <option value="segmento-desc">Segmento Z-A</option>
+      <option value="responsavel-asc">Responsavel A-Z</option>
+      <option value="responsavel-desc">Responsavel Z-A</option>
+    </select>
+
+    <button type="button" (click)="resetFilters()">Limpar</button>
+  </div>
+
+  <div class="table">
+    <div class="row head">
+      <span>Cliente</span>
+      <span>Segmento</span>
+      <span>Responsavel</span>
+      <span>Fase</span>
+      <span>Status</span>
+    </div>
+    <div class="row" *ngFor="let cliente of filteredClientes">
+      <span>{{ cliente.nome }}</span>
+      <span>{{ cliente.segmento }}</span>
+      <span>{{ cliente.responsavel }}</span>
+      <span>{{ cliente.fase }}</span>
+      <span>
+        <b class="status" [class.inativo]="cliente.status === 'Inativo'" [class.prospect]="cliente.status === 'Prospect'">
+          {{ cliente.status }}
+        </b>
+      </span>
+    </div>
+    <div class="row empty" *ngIf="filteredClientes.length === 0">
+      <span>Nenhum cliente encontrado para o filtro atual.</span>
+    </div>
+  </div>
+</section>

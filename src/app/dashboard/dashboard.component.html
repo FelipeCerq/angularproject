@@ -1,0 +1,68 @@
+<section class="cards">
+  <article class="card stat-card" [ngClass]="metric.theme" *ngFor="let metric of metrics">
+    <h2>{{ metric.title }}</h2>
+    <p>{{ metric.value }}</p>
+    <span>{{ metric.detail }}</span>
+    <div class="sparkline"></div>
+  </article>
+</section>
+
+<section class="traffic panel">
+  <div class="panel-head">
+    <div>
+      <h3>Trafego</h3>
+      <p>1 de Janeiro, 2026 - 19 de Fevereiro, 2026</p>
+    </div>
+    <button type="button">Exportar</button>
+  </div>
+  <div class="chart-grid">
+    <div class="chart-area">
+      <div class="fake-chart"></div>
+    </div>
+    <div class="channel-list">
+      <div class="channel-row" *ngFor="let channel of channels">
+        <div class="channel-label">
+          <span>{{ channel.name }}</span>
+          <strong>{{ channel.total | number }}</strong>
+        </div>
+        <div class="progress">
+          <div class="bar" [style.width.%]="channel.value" [style.background]="channel.color"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="two-columns">
+  <article class="panel">
+    <h3>Fontes de aquisicao</h3>
+    <div class="table">
+      <div class="row head">
+        <span>Origem</span>
+        <span>Usuarios</span>
+        <span>Taxa</span>
+        <span>Receita</span>
+        <span>Conversao</span>
+      </div>
+      <div class="row" *ngFor="let row of trafficRows">
+        <span>{{ row.source }}</span>
+        <span>{{ row.users | number }}</span>
+        <span>{{ row.rate }}</span>
+        <span>{{ row.revenue }}</span>
+        <span>{{ row.conversion }}</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="panel">
+    <h3>Chamados recentes</h3>
+    <div class="ticket" *ngFor="let ticket of tickets">
+      <div>
+        <strong>{{ ticket.id }}</strong>
+        <p>{{ ticket.title }}</p>
+      </div>
+      <div class="badge">{{ ticket.priority }}</div>
+      <small>{{ ticket.owner }}</small>
+    </div>
+  </article>
+</section>

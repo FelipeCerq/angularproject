@@ -1,0 +1,32 @@
+<div class="auth-page">
+  <div class="auth-card">
+    <h1>Entrar</h1>
+    <p class="subtitle">Acesse o painel administrativo.</p>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <label for="name">Nome</label>
+      <input id="name" type="text" formControlName="name" placeholder="Seu nome completo" />
+      <small *ngIf="loginForm.controls.name.touched && loginForm.controls.name.invalid">
+        Informe seu nome (minimo 3 caracteres).
+      </small>
+
+      <label for="email">Email</label>
+      <input id="email" type="email" formControlName="email" placeholder="admin@empresa.com" />
+      <small *ngIf="loginForm.controls.email.touched && loginForm.controls.email.invalid">
+        Informe um email valido.
+      </small>
+
+      <label for="password">Senha</label>
+      <input id="password" type="password" formControlName="password" placeholder="Minimo 4 caracteres" />
+      <small *ngIf="loginForm.controls.password.touched && loginForm.controls.password.invalid">
+        Informe uma senha com pelo menos 4 caracteres.
+      </small>
+
+      <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+      <button type="submit">Entrar</button>
+    </form>
+
+    <p class="hint">Use nome, email valido e senha com 4+ caracteres.</p>
+  </div>
+</div>

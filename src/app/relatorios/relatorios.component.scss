@@ -1,0 +1,41 @@
+.page-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 8px 22px rgba(24, 39, 75, 0.08);
+}
+
+h2 {
+  margin: 0;
+  color: #1f2a44;
+}
+
+p {
+  color: #5f6f8f;
+}
+
+.table {
+  margin-top: 1rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.3fr 1fr;
+  gap: 0.8rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #ebeff7;
+}
+
+.row.head {
+  font-weight: 700;
+  color: #5f6f8f;
+}
+
+.status {
+  font-weight: 700;
+  color: #1b5e20;
+}
+
+.status.processing {
+  color: #ef6c00;
+}

@@ -1,0 +1,25 @@
+<main class="app-shell">
+  <aside class="sidebar">
+    <div class="brand">Televendas Admin</div>
+    <nav>
+      <a routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Dashboard</a>
+      <a routerLink="/clientes" routerLinkActive="active">Clientes</a>
+      <a routerLink="/chamados" routerLinkActive="active">Chamados</a>
+      <a routerLink="/relatorios" routerLinkActive="active">Relatorios</a>
+      <a routerLink="/configuracoes" routerLinkActive="active">Configuracoes</a>
+      <a routerLink="/perfil" routerLinkActive="active">Perfil</a>
+    </nav>
+    <button type="button" (click)="logout()">Sair</button>
+  </aside>
+
+  <section class="content">
+    <header class="topbar">
+      <h1>Painel Administrativo</h1>
+      <div class="user">
+        <strong>{{ userName }}</strong>
+        <span>{{ userRole }}</span>
+      </div>
+    </header>
+    <router-outlet></router-outlet>
+  </section>
+</main>

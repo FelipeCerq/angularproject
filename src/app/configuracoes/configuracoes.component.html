@@ -1,0 +1,12 @@
+<section class="page-card">
+  <h2>Configuracoes</h2>
+  <p>Parametros principais do sistema.</p>
+
+  <div class="setting" *ngFor="let item of settings">
+    <div>
+      <strong>{{ item.nome }}</strong>
+      <span>{{ item.valor }}</span>
+    </div>
+    <button type="button">Editar</button>
+  </div>
+</section>
