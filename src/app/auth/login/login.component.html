@@ -1,32 +1,66 @@
 <div class="auth-page">
+  <div class="bg-shape one"></div>
+  <div class="bg-shape two"></div>
+
   <div class="auth-card">
-    <h1>Entrar</h1>
-    <p class="subtitle">Acesse o painel administrativo.</p>
+    <div class="brand">
+      <h1>Televendas Admin</h1>
+      <p>Acesse sua conta ou crie um cadastro para entrar no painel.</p>
+    </div>
 
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <label for="name">Nome</label>
-      <input id="name" type="text" formControlName="name" placeholder="Seu nome completo" />
-      <small *ngIf="loginForm.controls.name.touched && loginForm.controls.name.invalid">
-        Informe seu nome (minimo 3 caracteres).
-      </small>
+    <div class="tabs">
+      <button type="button" [class.active]="mode === 'login'" (click)="setMode('login')">Entrar</button>
+      <button type="button" [class.active]="mode === 'register'" (click)="setMode('register')">Cadastrar</button>
+    </div>
 
-      <label for="email">Email</label>
-      <input id="email" type="email" formControlName="email" placeholder="admin@empresa.com" />
-      <small *ngIf="loginForm.controls.email.touched && loginForm.controls.email.invalid">
+    <form *ngIf="mode === 'login'" [formGroup]="signInForm" (ngSubmit)="onLoginSubmit()">
+      <label for="loginEmail">Email</label>
+      <input id="loginEmail" type="email" formControlName="email" placeholder="voce@empresa.com" />
+      <small *ngIf="signInForm.controls.email.touched && signInForm.controls.email.invalid">
         Informe um email valido.
       </small>
 
-      <label for="password">Senha</label>
-      <input id="password" type="password" formControlName="password" placeholder="Minimo 4 caracteres" />
-      <small *ngIf="loginForm.controls.password.touched && loginForm.controls.password.invalid">
-        Informe uma senha com pelo menos 4 caracteres.
+      <label for="loginPassword">Senha</label>
+      <input id="loginPassword" type="password" formControlName="password" placeholder="Sua senha" />
+      <small *ngIf="signInForm.controls.password.touched && signInForm.controls.password.invalid">
+        Minimo de 4 caracteres.
       </small>
 
       <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+      <p class="success" *ngIf="successMessage">{{ successMessage }}</p>
 
-      <button type="submit">Entrar</button>
+      <button class="primary" type="submit">Entrar no painel</button>
     </form>
 
-    <p class="hint">Use nome, email valido e senha com 4+ caracteres.</p>
+    <form *ngIf="mode === 'register'" [formGroup]="signUpForm" (ngSubmit)="onRegisterSubmit()">
+      <label for="registerName">Nome completo</label>
+      <input id="registerName" type="text" formControlName="name" placeholder="Seu nome" />
+      <small *ngIf="signUpForm.controls.name.touched && signUpForm.controls.name.invalid">
+        Informe nome com minimo de 3 caracteres.
+      </small>
+
+      <label for="registerEmail">Email</label>
+      <input id="registerEmail" type="email" formControlName="email" placeholder="voce@empresa.com" />
+      <small *ngIf="signUpForm.controls.email.touched && signUpForm.controls.email.invalid">
+        Informe um email valido.
+      </small>
+
+      <label for="registerPassword">Senha</label>
+      <input id="registerPassword" type="password" formControlName="password" placeholder="Crie uma senha" />
+      <small *ngIf="signUpForm.controls.password.touched && signUpForm.controls.password.invalid">
+        Minimo de 4 caracteres.
+      </small>
+
+      <label for="registerConfirmPassword">Confirmar senha</label>
+      <input id="registerConfirmPassword" type="password" formControlName="confirmPassword" placeholder="Repita a senha" />
+      <small *ngIf="signUpForm.controls.confirmPassword.touched && signUpForm.controls.confirmPassword.invalid">
+        Minimo de 4 caracteres.
+      </small>
+
+      <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+      <p class="success" *ngIf="successMessage">{{ successMessage }}</p>
+
+      <button class="primary" type="submit">Criar cadastro</button>
+    </form>
   </div>
 </div>
